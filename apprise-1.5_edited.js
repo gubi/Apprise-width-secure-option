@@ -11,12 +11,12 @@ function apprise(string, args, callback){
 		{
 		'confirm'		:	false, 		// Ok and Cancel buttons
 		'verify'		:	false,		// Yes and No buttons
-		'input'		:	false, 		// Text input (can be true or string for default text)
+		'input'			:	false, 		// Text input (can be true or string for default text)
 		'key'			:	false, 		// Text input encryption key (can be true or string for default text) ~ need jQuery iphone-password: http://code.google.com/p/iphone-password/
-		'password'	:	false, 		// Password input (can be true or string for default text)
+		'password'		:	false, 		// Password input (can be true or string for default text)
 		'animate'		:	false,		// Groovy animation (can true or number, default is 400)
 		'textOk'		:	'Ok',		// Ok button default text
-		'textCancel'	:	'Annulla',	// Cancel button default text
+		'textCancel'		:	'Annulla',	// Cancel button default text
 		'textYes'		:	'Si',		// Yes button default text
 		'textNo'		:	'No'		// No button default text
 		}
@@ -42,12 +42,13 @@ function apprise(string, args, callback){
 		if(args['animate']){
 			var aniSpeed = args['animate'];
 			if(isNaN(aniSpeed)) { aniSpeed = 400; }
-			$('.appriseOuter').css('top', '-200px').show().animate({top:"100px"}, aniSpeed);
+			$('.appriseOuter').css('top', '-200px').fadeIn(aniSpeed);
+			$('.appriseOuter').css({"marginTop": "-" + $('.appriseOuter').height()/2 + "px"}).animate({top:"50%"}, aniSpeed);
 		} else {
-			$('.appriseOuter').css('top', '100px').fadeIn(200);
+			$('.appriseOuter').css({"marginTop": "-" + $('.appriseOuter').height()/2 + "px", "top": "50%"}).fadeIn(600);
 		}
 	} else {
-		$('.appriseOuter').css('top', '100px').fadeIn(200);
+		$('.appriseOuter').css({"marginTop": "-" + $('.appriseOuter').height()/2 + "px", "top": "50%"}).fadeIn(600);
 	}
 	if(args) {
 		if(args['input']) {
